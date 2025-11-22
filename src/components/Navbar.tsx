@@ -20,6 +20,7 @@ export const Navbar = () => {
   const navLinks = [
     { name: "Services", href: "#services" },
     { name: "Portfolio", href: "#portfolio" },
+    { name: "Videos", href: "/videos", isRoute: true },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
   ];
@@ -55,14 +56,25 @@ export const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
-                key={link.name}
-                onClick={() => scrollToSection(link.href)}
-                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300"></span>
-              </button>
+              link.isRoute ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative group"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300"></span>
+                </Link>
+              ) : (
+                <button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.href)}
+                  className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative group"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300"></span>
+                </button>
+              )
             ))}
             
             <Link to="/auth">
@@ -103,13 +115,24 @@ export const Navbar = () => {
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.name}
-                  onClick={() => scrollToSection(link.href)}
-                  className="block w-full text-left py-2 text-foreground/80 hover:text-foreground transition-colors"
-                >
-                  {link.name}
-                </button>
+                link.isRoute ? (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block w-full text-left py-2 text-foreground/80 hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <button
+                    key={link.name}
+                    onClick={() => scrollToSection(link.href)}
+                    className="block w-full text-left py-2 text-foreground/80 hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </button>
+                )
               ))}
               
               <div className="pt-4 space-y-3 border-t border-border">
