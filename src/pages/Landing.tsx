@@ -1,0 +1,827 @@
+import { Suspense, lazy } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import {
+  Code2,
+  Smartphone,
+  Sparkles,
+  Video,
+  Palette,
+  TrendingUp,
+  ArrowRight,
+  CheckCircle2,
+  Star,
+  Linkedin,
+  Filter,
+} from "lucide-react";
+import { useState } from "react";
+
+const Hero3D = lazy(() =>
+  import("@/components/Hero3D").then((module) => ({ default: module.Hero3D }))
+);
+
+const Landing = () => {
+  const [selectedFilter, setSelectedFilter] = useState("All");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    budget: "",
+    projectType: "",
+    message: "",
+  });
+
+  const services = [
+    {
+      icon: Code2,
+      title: "Website Development",
+      description: "Stunning, responsive websites built with modern frameworks and best practices.",
+      deliverables: ["Custom design", "SEO optimization", "CMS integration"],
+      color: "primary",
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile App Development",
+      description: "Native and cross-platform mobile apps that users love.",
+      deliverables: ["iOS & Android", "Cloud integration", "Push notifications"],
+      color: "primary",
+    },
+    {
+      icon: Sparkles,
+      title: "AI Integration & Products",
+      description: "Cutting-edge AI solutions that add real value to your business.",
+      deliverables: ["AI chatbots", "Automation", "Custom AI tools"],
+      color: "accent",
+    },
+    {
+      icon: Video,
+      title: "Video Editing",
+      description: "Professional video editing and post-production services.",
+      deliverables: ["Motion graphics", "Color grading", "Sound design"],
+      color: "primary",
+    },
+    {
+      icon: Palette,
+      title: "Graphic Design & Branding",
+      description: "Memorable brand identities and stunning visual designs.",
+      deliverables: ["Logo design", "Brand kits", "Marketing materials"],
+      color: "primary",
+    },
+    {
+      icon: TrendingUp,
+      title: "Digital Marketing",
+      description: "Data-driven marketing strategies that drive real growth.",
+      deliverables: ["SEO & SEM", "Social media", "Performance ads"],
+      color: "primary",
+    },
+  ];
+
+  const portfolioFilters = ["All", "Web", "Apps", "AI", "Design", "Marketing"];
+  
+  const portfolioProjects = [
+    {
+      title: "E-Commerce Platform",
+      description: "Modern online store with AI recommendations",
+      tags: ["Web", "AI"],
+      image: "placeholder",
+    },
+    {
+      title: "Fitness Tracking App",
+      description: "Cross-platform mobile app with real-time analytics",
+      tags: ["Apps"],
+      image: "placeholder",
+    },
+    {
+      title: "AI Chatbot Assistant",
+      description: "Intelligent customer support automation",
+      tags: ["AI"],
+      image: "placeholder",
+    },
+    {
+      title: "Brand Identity Redesign",
+      description: "Complete rebrand for tech startup",
+      tags: ["Design"],
+      image: "placeholder",
+    },
+    {
+      title: "SaaS Marketing Campaign",
+      description: "Multi-channel growth strategy",
+      tags: ["Marketing"],
+      image: "placeholder",
+    },
+    {
+      title: "Restaurant Booking System",
+      description: "Full-stack web app with payment integration",
+      tags: ["Web"],
+      image: "placeholder",
+    },
+  ];
+
+  const filteredProjects =
+    selectedFilter === "All"
+      ? portfolioProjects
+      : portfolioProjects.filter((project) => project.tags.includes(selectedFilter));
+
+  const teamMembers = [
+    {
+      name: "Shivansh Mittal",
+      role: "Founder & Lead Engineer",
+      bio: "Full-stack developer passionate about AI and modern web tech",
+      linkedin: "https://linkedin.com/in/shivansh-mittal",
+    },
+    {
+      name: "Sarah Chen",
+      role: "UI/UX Designer",
+      bio: "Creating beautiful, user-centered digital experiences",
+      linkedin: "#",
+    },
+    {
+      name: "Marcus Rodriguez",
+      role: "Video Editor",
+      bio: "Crafting compelling visual stories through motion",
+      linkedin: "#",
+    },
+    {
+      name: "Priya Sharma",
+      role: "Digital Marketing Lead",
+      bio: "Data-driven growth hacker with proven ROI track record",
+      linkedin: "#",
+    },
+  ];
+
+  const whyChooseUs = [
+    {
+      title: "Full-Stack Tech + Creative",
+      description: "One team for all your digital needs",
+    },
+    {
+      title: "AI-Native Approach",
+      description: "We integrate AI where it actually adds value",
+    },
+    {
+      title: "Competitive Pricing",
+      description: "Quality work without breaking the bank",
+    },
+    {
+      title: "Fast Execution",
+      description: "Rapid iteration and transparent communication",
+    },
+  ];
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    // Handle form submission
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        {/* 3D Background */}
+        <Suspense fallback={<div className="absolute inset-0 bg-gradient-mesh"></div>}>
+          <Hero3D />
+        </Suspense>
+
+        <div className="absolute inset-0 bg-gradient-mesh"></div>
+        <div className="absolute inset-0 bg-gradient-spotlight"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
+              🚀 Full-Stack Digital Agency
+            </Badge>
+            
+            <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <span className="gradient-text">Full-Stack Digital Agency</span>
+              <br />
+              <span className="text-foreground">for Web, Apps, AI & Growth</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+              We build websites, apps, AI solutions, and handle everything from branding to marketing.
+              End-to-end execution from idea to launch.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                variant="hero"
+                size="lg"
+                onClick={() => scrollToSection("contact")}
+                className="group"
+              >
+                Book a Call
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => scrollToSection("portfolio")}
+              >
+                View Our Work
+              </Button>
+            </div>
+
+            {/* Trusted by logos */}
+            <div className="mt-20">
+              <p className="text-sm text-muted-foreground mb-6 uppercase tracking-wider">
+                Trusted by innovative companies
+              </p>
+              <div className="flex flex-wrap justify-center gap-8 opacity-50">
+                {["TechCorp", "StartupXYZ", "InnovateCo", "DigitalPro"].map((brand) => (
+                  <div key={brand} className="font-display text-xl font-semibold">
+                    {brand}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* USP Section */}
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {whyChooseUs.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="glass hover-glow transition-all h-full">
+                  <CardContent className="p-6">
+                    <CheckCircle2 className="w-10 h-10 text-accent mb-4" />
+                    <h3 className="font-display font-semibold text-lg mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-24 bg-gradient-mesh relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Our Services</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive digital solutions tailored to your needs
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="glass-strong hover-glow transition-all h-full group cursor-pointer">
+                  <CardContent className="p-8">
+                    <div
+                      className={`w-14 h-14 rounded-2xl ${
+                        service.color === "accent" ? "bg-accent/20" : "bg-primary/20"
+                      } flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
+                    >
+                      <service.icon
+                        className={`w-7 h-7 ${
+                          service.color === "accent" ? "text-accent" : "text-primary"
+                        }`}
+                      />
+                    </div>
+                    
+                    <h3 className="font-display font-semibold text-xl mb-3">
+                      {service.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground mb-6">{service.description}</p>
+
+                    <div className="space-y-2">
+                      <p className="text-sm font-medium text-foreground/70 mb-2">
+                        Deliverables:
+                      </p>
+                      {service.deliverables.map((item, i) => (
+                        <div key={i} className="flex items-center gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-accent" />
+                          <span className="text-sm text-muted-foreground">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-6 pt-6 border-t border-border">
+                      <p className="text-sm text-muted-foreground">
+                        Starting at{" "}
+                        <span className="text-foreground font-semibold">
+                          Competitive rates
+                        </span>
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Integration Highlight */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-spotlight"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">
+              ✨ AI-Powered Solutions
+            </Badge>
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">AI Integration & Development</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              We build AI solutions that actually solve problems and drive business value
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "AI Chatbots for Business",
+                description:
+                  "Intelligent conversational AI that handles customer support, lead qualification, and FAQs 24/7.",
+                icon: Sparkles,
+              },
+              {
+                title: "AI-Powered Automation",
+                description:
+                  "Custom workflows and automations that save time and reduce manual errors.",
+                icon: Code2,
+              },
+              {
+                title: "AI-Enhanced Dashboards",
+                description:
+                  "Internal tools with AI insights, predictive analytics, and smart recommendations.",
+                icon: TrendingUp,
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="glass-strong accent-glow h-full">
+                  <CardContent className="p-8">
+                    <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
+                      <item.icon className="w-7 h-7 text-accent" />
+                    </div>
+                    <h3 className="font-display font-semibold text-xl mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-24 bg-gradient-mesh">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Our Work</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Real projects, real results
+            </p>
+          </motion.div>
+
+          {/* Filter Bar */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {portfolioFilters.map((filter) => (
+              <Button
+                key={filter}
+                variant={selectedFilter === filter ? "hero" : "outline"}
+                size="sm"
+                onClick={() => setSelectedFilter(filter)}
+              >
+                {filter}
+              </Button>
+            ))}
+          </div>
+
+          {/* Portfolio Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="glass-strong hover-glow overflow-hidden group cursor-pointer h-full">
+                  <div className="aspect-video bg-gradient-primary/20 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <Sparkles className="w-12 h-12 text-primary/50" />
+                  </div>
+                  <CardContent className="p-6">
+                    <div className="flex gap-2 mb-3">
+                      {project.tags.map((tag) => (
+                        <Badge
+                          key={tag}
+                          variant="outline"
+                          className="text-xs border-primary/20"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    <h3 className="font-display font-semibold text-lg mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {project.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About & Team Section */}
+      <section id="about" className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+              <span className="gradient-text">About NexaLabs</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              We're a full-stack digital agency that believes in end-to-end execution.
+              From initial concept to final launch, we handle every aspect of your digital presence.
+              Our AI-first mindset and competitive pricing make us the perfect partner for
+              startups and growing businesses.
+            </p>
+          </motion.div>
+
+          {/* Team Grid */}
+          <div className="mt-20">
+            <h3 className="font-display text-3xl font-bold text-center mb-12">
+              Meet the Team
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {teamMembers.map((member, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Card className="glass-strong hover-glow text-center h-full">
+                    <CardContent className="p-6">
+                      <div className="w-24 h-24 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center">
+                        <span className="text-3xl font-bold text-white">
+                          {member.name.charAt(0)}
+                        </span>
+                      </div>
+                      
+                      <h4 className="font-display font-semibold text-lg mb-1">
+                        {member.name}
+                      </h4>
+                      
+                      <p className="text-sm text-primary mb-3">{member.role}</p>
+                      
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {member.bio}
+                      </p>
+
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                        LinkedIn
+                      </a>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-24 bg-gradient-mesh">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Transparent Pricing</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Value over vanity. We care about ROI, not just aesthetics.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                tier: "Starter",
+                description: "Perfect for small projects and MVPs",
+                features: [
+                  "Single service focus",
+                  "2-week turnaround",
+                  "Basic support",
+                  "1 revision round",
+                ],
+              },
+              {
+                tier: "Growth",
+                description: "For growing businesses",
+                features: [
+                  "Multi-service packages",
+                  "Priority support",
+                  "Unlimited revisions",
+                  "Ongoing optimization",
+                ],
+                featured: true,
+              },
+              {
+                tier: "Scale",
+                description: "Enterprise solutions",
+                features: [
+                  "End-to-end execution",
+                  "Dedicated team",
+                  "24/7 support",
+                  "Custom SLAs",
+                ],
+              },
+            ].map((plan, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card
+                  className={`h-full ${
+                    plan.featured
+                      ? "glass-strong accent-glow border-accent/50"
+                      : "glass-strong"
+                  }`}
+                >
+                  <CardContent className="p-8">
+                    {plan.featured && (
+                      <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">
+                        <Star className="w-3 h-3 mr-1" />
+                        Most Popular
+                      </Badge>
+                    )}
+                    
+                    <h3 className="font-display text-2xl font-bold mb-2">
+                      {plan.tier}
+                    </h3>
+                    
+                    <p className="text-muted-foreground mb-6">{plan.description}</p>
+
+                    <div className="space-y-3 mb-8">
+                      {plan.features.map((feature, i) => (
+                        <div key={i} className="flex items-center gap-2">
+                          <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
+                          <span className="text-sm">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <Button
+                      variant={plan.featured ? "hero" : "outline"}
+                      className="w-full"
+                      onClick={() => scrollToSection("contact")}
+                    >
+                      Get Quote
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Let's Build Something Amazing</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Ready to start your project? Get in touch with us.
+            </p>
+          </motion.div>
+
+          <Card className="glass-strong">
+            <CardContent className="p-8">
+              <form onSubmit={handleFormSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input
+                      id="name"
+                      placeholder="John Doe"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      required
+                      className="bg-secondary/50 border-primary/20"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      required
+                      className="bg-secondary/50 border-primary/20"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="company">Company (Optional)</Label>
+                    <Input
+                      id="company"
+                      placeholder="Acme Inc."
+                      value={formData.company}
+                      onChange={(e) =>
+                        setFormData({ ...formData, company: e.target.value })
+                      }
+                      className="bg-secondary/50 border-primary/20"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="budget">Budget Range</Label>
+                    <Input
+                      id="budget"
+                      placeholder="$5k - $10k"
+                      value={formData.budget}
+                      onChange={(e) =>
+                        setFormData({ ...formData, budget: e.target.value })
+                      }
+                      className="bg-secondary/50 border-primary/20"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="projectType">Project Type</Label>
+                  <Input
+                    id="projectType"
+                    placeholder="Website, Mobile App, AI Solution, etc."
+                    value={formData.projectType}
+                    onChange={(e) =>
+                      setFormData({ ...formData, projectType: e.target.value })
+                    }
+                    className="bg-secondary/50 border-primary/20"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
+                    id="message"
+                    placeholder="Tell us about your project..."
+                    rows={5}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    required
+                    className="bg-secondary/50 border-primary/20 resize-none"
+                  />
+                </div>
+
+                <Button type="submit" variant="hero" size="lg" className="w-full">
+                  Send Message
+                  <ArrowRight className="ml-2" />
+                </Button>
+              </form>
+
+              <div className="mt-8 pt-8 border-t border-border">
+                <div className="text-center space-y-3">
+                  <p className="text-muted-foreground">Or reach us directly</p>
+                  <div className="flex flex-col sm:flex-row justify-center gap-4">
+                    <a
+                      href="mailto:hello@nexalabs.com"
+                      className="text-foreground hover:text-primary transition-colors"
+                    >
+                      hello@nexalabs.com
+                    </a>
+                    <span className="hidden sm:inline text-muted-foreground">•</span>
+                    <a
+                      href="tel:+1234567890"
+                      className="text-foreground hover:text-primary transition-colors"
+                    >
+                      +1 (234) 567-890
+                    </a>
+                  </div>
+                  
+                  <Button variant="accent" size="lg" className="mt-4">
+                    Book a Discovery Call
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Landing;
