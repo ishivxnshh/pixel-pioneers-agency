@@ -36,7 +36,7 @@ const Auth = () => {
             transition={{ delay: 0.2 }}
           >
             <h1 className="font-display text-6xl font-bold mb-6">
-              <span className="gradient-text">NexaLabs</span>
+              <span className="gradient-text">Inventinity</span>
             </h1>
             <p className="text-2xl font-display mb-8 text-foreground/90">
               Full-Stack Digital Agency
@@ -87,7 +87,7 @@ const Auth = () => {
               <CardDescription>
                 {isLogin 
                   ? "Sign in to access your dashboard" 
-                  : "Sign up to get started with NexaLabs"}
+                  : "Sign up to get started with Inventinity"}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
