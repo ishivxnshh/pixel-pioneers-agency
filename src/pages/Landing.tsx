@@ -513,7 +513,7 @@ const Landing = () => {
             className="text-center mb-16"
           >
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              <span className="gradient-text">About NexaLabs</span>
+              <span className="gradient-text">About Inventinity</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               We're a full-stack digital agency that believes in end-to-end execution.
@@ -795,10 +795,10 @@ const Landing = () => {
                   <p className="text-muted-foreground">Or reach us directly</p>
                   <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <a
-                      href="mailto:hello@nexalabs.com"
+                      href="mailto:hello@inventinity.com"
                       className="text-foreground hover:text-primary transition-colors"
                     >
-                      hello@nexalabs.com
+                      hello@inventinity.com
                     </a>
                     <span className="hidden sm:inline text-muted-foreground">•</span>
                     <a

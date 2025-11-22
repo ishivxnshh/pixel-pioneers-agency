@@ -49,7 +49,7 @@ export const Navbar = () => {
               <Sparkles className="w-6 h-6 text-white" />
             </div>
             <span className="font-display text-xl font-bold gradient-text">
-              NexaLabs
+              Inventinity
             </span>
           </Link>
 
