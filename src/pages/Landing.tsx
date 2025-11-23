@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { CustomCursor } from "@/components/CustomCursor";
 import {
   Code2,
   Smartphone,
@@ -190,6 +191,7 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <CustomCursor />
       <Navbar />
 
       {/* Hero Section */}
@@ -206,7 +208,7 @@ const Landing = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
               🚀 Full-Stack Digital Agency
@@ -265,7 +267,8 @@ const Landing = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {whyChooseUs.map((item, index) => (
@@ -273,8 +276,12 @@ const Landing = () => {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ 
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
               >
                 <Card className="glass hover-glow transition-all h-full">
                   <CardContent className="p-6">
@@ -297,7 +304,8 @@ const Landing = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-16"
           >
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
@@ -314,8 +322,12 @@ const Landing = () => {
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ 
+                  delay: index * 0.1,
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
               >
                 <Card className="glass-strong hover-glow transition-all h-full group cursor-pointer">
                   <CardContent className="p-8">
@@ -373,7 +385,8 @@ const Landing = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-16"
           >
             <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">
@@ -412,8 +425,12 @@ const Landing = () => {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ 
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
               >
                 <Card className="glass-strong hover:accent-glow hover:border-accent/50 transition-all duration-300 h-full">
                   <CardContent className="p-8">
@@ -438,7 +455,8 @@ const Landing = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-12"
           >
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
@@ -470,8 +488,12 @@ const Landing = () => {
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ 
+                  delay: index * 0.1,
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
               >
                 <Card className="glass-strong hover-glow overflow-hidden group cursor-pointer h-full">
                   <div className="aspect-video bg-gradient-primary/20 flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -509,7 +531,8 @@ const Landing = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-16"
           >
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
@@ -535,8 +558,12 @@ const Landing = () => {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ 
+                    delay: index * 0.1,
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
                 >
                   <Card className="glass-strong hover-glow text-center h-full">
                     <CardContent className="p-6">
@@ -580,7 +607,8 @@ const Landing = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-16"
           >
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
@@ -628,8 +656,12 @@ const Landing = () => {
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ 
+                  delay: index * 0.1,
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
                 whileHover={{ scale: 1.02 }}
               >
                 <Card className="h-full glass-strong hover-glow hover:border-primary/50 transition-all duration-300">
@@ -671,7 +703,8 @@ const Landing = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-12"
           >
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">

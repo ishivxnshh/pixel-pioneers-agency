@@ -161,4 +161,9 @@ All colors MUST be HSL.
   .accent-glow {
     box-shadow: var(--shadow-accent-glow);
   }
+
+  /* Cursor glow trigger */
+  .cursor-glow {
+    cursor: pointer;
+  }
 }

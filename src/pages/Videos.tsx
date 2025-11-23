@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { CustomCursor } from "@/components/CustomCursor";
 import { Button } from "@/components/ui/button";
 import { Play, ExternalLink } from "lucide-react";
 
@@ -91,6 +92,7 @@ export default function Videos() {
 
   return (
     <div className="min-h-screen bg-background">
+      <CustomCursor />
       <Navbar />
       
       {/* Hero Section */}

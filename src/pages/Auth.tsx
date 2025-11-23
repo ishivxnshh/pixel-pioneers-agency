@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sparkles, Github, Mail, ArrowLeft } from "lucide-react";
+import { CustomCursor } from "@/components/CustomCursor";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen w-full flex">
+      <CustomCursor />
       {/* Left side - Brand */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
