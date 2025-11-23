@@ -630,8 +630,9 @@ const Landing = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
               >
-                <Card className="h-full glass-strong">
+                <Card className="h-full glass-strong hover:accent-glow hover:border-accent/50 transition-all duration-300">
                   <CardContent className="p-8">
                     
                     <h3 className="font-display text-2xl font-bold mb-2">
