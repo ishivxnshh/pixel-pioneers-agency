@@ -612,7 +612,6 @@ const Landing = () => {
                   "Unlimited revisions",
                   "Ongoing optimization",
                 ],
-                featured: true,
               },
               {
                 tier: "Scale",
@@ -632,20 +631,8 @@ const Landing = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card
-                  className={`h-full ${
-                    plan.featured
-                      ? "glass-strong accent-glow border-accent/50"
-                      : "glass-strong"
-                  }`}
-                >
+                <Card className="h-full glass-strong">
                   <CardContent className="p-8">
-                    {plan.featured && (
-                      <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">
-                        <Star className="w-3 h-3 mr-1" />
-                        Most Popular
-                      </Badge>
-                    )}
                     
                     <h3 className="font-display text-2xl font-bold mb-2">
                       {plan.tier}
@@ -663,7 +650,7 @@ const Landing = () => {
                     </div>
 
                     <Button
-                      variant={plan.featured ? "hero" : "outline"}
+                      variant="outline"
                       className="w-full"
                       onClick={() => scrollToSection("contact")}
                     >
