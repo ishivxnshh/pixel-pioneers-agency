@@ -415,7 +415,7 @@ const Landing = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="glass-strong accent-glow h-full">
+                <Card className="glass-strong accent-glow animate-glow-pulse h-full border-accent/50">
                   <CardContent className="p-8">
                     <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
                       <item.icon className="w-7 h-7 text-accent" />
